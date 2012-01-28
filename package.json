@@ -8,6 +8,5 @@
 		"underscored": "*",
 		"director": "1.0.8",
 		"flatiron": "*"
-	},
-	"engine": ">= node 0.4.0"
+	}
 }
