@@ -31,6 +31,7 @@ var server = http.createServer(function (req, res) {
 // You can also do ad-hoc routing, similar to express
 // this can be done with a string or a regexp
 
+router.get('/', helloMocha);
 router.get('/mocha', helloMocha);
 router.get('/latte', helloMocha);
 
