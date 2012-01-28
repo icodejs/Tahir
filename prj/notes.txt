@@ -1,0 +1,10 @@
+flatiron@0.1.9 ./node_modules/flatiron 
+├── pkginfo@0.2.2
+├── director@1.0.8
+├── optimist@0.3.1 (wordwrap@0.0.2)
+├── utile@0.0.10 (rimraf@1.0.9 mkdirp@0.3.0 async@0.1.15 ncp@0.2.3)
+├── prompt@0.1.11 (colors@0.6.0-1 async@0.1.15 winston@0.5.9)
+└── broadway@0.1.7
+underscored@0.1.5-1 ./node_modules/underscored 
+├── underscore@1.2.1
+└── underscore.string@1.1.6
