@@ -111,7 +111,7 @@ var server = http.createServer(function (req, res) {
 // router.get('/latte', helloMocha);
 
 // live
-//server.listen(80);
+server.listen(80);
 
 // dev
-server.listen(8080);
+//server.listen(8080);
