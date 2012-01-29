@@ -73,16 +73,7 @@ var router = new director.http.Router({
 				res.end();		
 			});
 		}	
-	},
-	'/public/css/bootstrap.css': {
-		get: function () {	
-			serveFile(this.res, '/public/bootstrap/bootstrap.css', function(err, res){
-				if (err) { throw err }
-
-				res.end();		
-			});
-		}	
-	}			
+	}
 });
 
 // setup a server when there is a request, dispatch the 
