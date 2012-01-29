@@ -56,6 +56,15 @@ var router = new director.http.Router({
 			});
 		}	
 	},
+	'/public/css/bootstrap.css': {
+		get: function () {	
+			serveFile(this.res, '/public/bootstrap/bootstrap.css', function(err, res){
+				if (err) { throw err }
+
+				res.end();		
+			});
+		}	
+	},	
 	'/public/css/base.css': {
 		get: function () {	
 			serveFile(this.res, '/public/css/base.css', function(err, res){
@@ -68,15 +77,6 @@ var router = new director.http.Router({
 	'/public/img/browsers.png': {
 		get: function () {	
 			serveFile(this.res, '/public/img/browsers.png', function(err, res){
-				if (err) { throw err }
-
-				res.end();		
-			});
-		}	
-	},
-	'/public/css/bootstrap.css': {
-		get: function () {	
-			serveFile(this.res, '/public/bootstrap/bootstrap.css', function(err, res){
 				if (err) { throw err }
 
 				res.end();		
@@ -107,8 +107,8 @@ var server = http.createServer(function (req, res) {
 // You can also do ad-hoc routing, similar to express
 // this can be done with a string or a regexp
 
-router.get('/mocha', helloMocha);
-router.get('/latte', helloMocha);
+// router.get('/mocha', helloMocha);
+// router.get('/latte', helloMocha);
 
 // live
 server.listen(80);
