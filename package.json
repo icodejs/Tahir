@@ -1,12 +1,14 @@
  {
-	"name": "mochascript",
+	"name": "tahir",
 	"version": "1.0.0",
 	"scripts": {
 		"start": "node server.js"
 	},
 		"dependencies": {
-		"underscored": "*",
-		"director": "1.0.8",
-		"flatiron": "*"
-	}
+			"underscored": "*",
+			"flatiron": "*",
+			"director": "*",
+			"plates": "*",
+			"resourceful": "*"
+		}
 }

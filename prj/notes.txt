@@ -1,3 +1,5 @@
+director@1.0.8 ./node_modules/director 
+
 flatiron@0.1.9 ./node_modules/flatiron 
 ├── pkginfo@0.2.2
 ├── director@1.0.8
@@ -8,3 +10,8 @@ flatiron@0.1.9 ./node_modules/flatiron
 underscored@0.1.5-1 ./node_modules/underscored 
 ├── underscore@1.2.1
 └── underscore.string@1.1.6
+
+plates@0.4.3 ./node_modules/plates 
+resourceful@0.1.6 ./node_modules/resourceful 
+├── revalidator@0.1.0
+└── cradle@0.5.8
