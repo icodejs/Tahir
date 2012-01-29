@@ -56,9 +56,9 @@ var router = new director.http.Router({
 			});
 		}	
 	},
-	'/public/bootstrap/bootstrap.css': {
+	'/public/css/bootstrap.css': {
 		get: function () {	
-			serveFile(this.res, '/public/bootstrap/bootstrap.css', function(err, res){
+			serveFile(this.res, '/public/css/bootstrap.css', function(err, res){
 				if (err) { throw err }
 
 				res.end();		
