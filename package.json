@@ -9,6 +9,8 @@
 			"flatiron": "*",
 			"director": "*",
 			"plates": "*",
-			"resourceful": "*"
+			"resourceful": "*",
+			"weld": "*",
+			"jsdom": "*"
 		}
 }

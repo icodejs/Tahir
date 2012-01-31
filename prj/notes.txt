@@ -15,3 +15,11 @@ plates@0.4.3 ./node_modules/plates
 resourceful@0.1.6 ./node_modules/resourceful 
 ├── revalidator@0.1.0
 └── cradle@0.5.8
+
+weld@0.2.2 ./node_modules/weld 
+jsdom@0.2.10 ./node_modules/jsdom 
+├── cssom@0.2.2
+├── request@2.9.100
+├── htmlparser@1.7.4
+└── contextify@0.0.7
+

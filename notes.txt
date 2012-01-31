@@ -1,0 +1,8 @@
+Notes - In no particular order
+--------------------------------
+
+	1.	Work out how to create templates using Plates.
+	2.	Work out how to create include pages that use plates, e.g. mastHead, footer etc.
+	3.	Implement some of the cool UI functionality using Bootstrap.
+	4.	Improve on http routing using Director.
+	5.	Use Resourceful for CRUD and other data managment needs.

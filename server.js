@@ -1,7 +1,10 @@
 var http 			= require('http'),
 		director 	= require('director'),
 		util 			= require('util'),
-		fs 				= require('fs');
+		fs 				= require('fs'),
+		plates 		= require('plates'),
+		cv 				= require('./lib/cv').cv,
+		jsdom			= require('jsdom');
 
 // some logic to be routed to
 
@@ -24,6 +27,15 @@ function serveFile(res, uri, callback) {
 			callback(new Error('Unable to locate a file extension for file: ' + uri));
 		}
 	});		
+}
+
+function serveHTML(uri, callback) {
+	fs.readFile(__dirname + uri, 'utf-8', function (err, data) {
+	  if (err) { 
+		  callback(err);
+		}
+	  callback(null, data);
+	});	
 }
 
 function getMIME(ext) {
@@ -49,11 +61,33 @@ function getMIME(ext) {
 var router = new director.http.Router({
 	'/': {
 		get: function () {	
-			serveFile(this.res, '/public/index.html', function(err, res){
+			var that = this;
+			serveHTML('/public/index.html', function(err, html){
 				if (err) { throw err }
+
+				// integrate weld : https://github.com/hij1nx/weld
+				// abstract this out into a function that can excepts
+				// a json object and the template html
+				// and the targetted element to be bound.
 				
-				res.end();		
-			});
+				jsdom.env({
+				  html: html,
+				  scripts: ['./lib/jquery.js'],
+				  done: function(err, window) {
+						if (err) { throw err }	
+								  	
+				    var $ = window.$;
+				    var output = '';
+
+				    $('a').each(function() {
+				      output += $(this).text() + '<br />'
+				    });
+
+				    that.res.end(html);
+				  }
+				});						
+				
+			}); // end serveHTML
 		}	
 	},
 	'/public/bootstrap/bootstrap.css': {
@@ -111,7 +145,7 @@ var server = http.createServer(function (req, res) {
 // router.get('/latte', helloMocha);
 
 // live
-server.listen(80);
+//server.listen(80);
 
 // dev
-//server.listen(8080);
+server.listen(8080);
