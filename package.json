@@ -8,10 +8,8 @@
 			"underscored": "*",
 			"flatiron": "*",
 			"director": "*",
-			"plates": "*",
 			"resourceful": "*",
-			"weld": "*",
-			"jsdom": "*"
+			"weld": "*"
 		},
 		"engines": { "node": "0.6.7" }
 }
