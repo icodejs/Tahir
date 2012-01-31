@@ -12,5 +12,6 @@
 			"resourceful": "*",
 			"weld": "*",
 			"jsdom": "*"
-		}
+		},
+		"engines": { "node": "0.6.7" }
 }
