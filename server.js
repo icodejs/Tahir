@@ -2,10 +2,8 @@ var http 			= require('http'),
 		director 	= require('director'),
 		util 			= require('util'),
 		fs 				= require('fs'),
-		plates 		= require('plates'),
-		cv 				= require('./lib/cv').cv,
-		jsdom			= require('jsdom');
-
+		cv 				= require('./lib/cv').cv;
+//jsdom			= require('jsdom')
 // some logic to be routed to
 
 function helloMocha() {
