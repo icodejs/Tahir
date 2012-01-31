@@ -69,7 +69,7 @@ var router = new director.http.Router({
 				// abstract this out into a function that can excepts
 				// a json object and the template html
 				// and the targetted element to be bound.
-				
+
 				jsdom.env({
 				  html: html,
 				  scripts: ['./lib/jquery.js'],
@@ -145,7 +145,7 @@ var server = http.createServer(function (req, res) {
 // router.get('/latte', helloMocha);
 
 // live
-//server.listen(80);
+server.listen(80);
 
 // dev
-server.listen(8080);
+//server.listen(8080);
