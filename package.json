@@ -10,7 +10,8 @@
 			"director": "*",
 			"resourceful": "*",
 			"weld": "*",
-			"jsdom": "*"
+			"jsdom": "*",
+			"contextify": "*"
 		},
-		"engines": { "node": ">= 0.6.7" }
+		"engines": { "node": ">= 0.6.9" }
 }
