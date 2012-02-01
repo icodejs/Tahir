@@ -68,23 +68,23 @@ var router = new director.http.Router({
 				// a json object and the template html
 				// and the targetted element to be bound.
 
-				// jsdom.env({
-				//   html: html,
-				//   scripts: ['./lib/jquery.js'],
-				//   done: function(err, window) {
-				// 		if (err) { throw err }	
+				jsdom.env({
+				  html: html,
+				  scripts: ['./lib/jquery.js'],
+				  done: function(err, window) {
+						if (err) { throw err }	
 								  	
-				//     var $ = window.$;
-				//     var output = '';
+				    var $ = window.$;
+				    var output = '';
 
-				//     $('a').each(function() {
-				//       output += $(this).text() + '<br />'
-				//     });
+				    $('a').each(function() {
+				      output += $(this).text() + '<br />'
+				    });
 
-				//     that.res.end(html);
-				//   }
-				// });						
-				that.res.end(html);
+				    that.res.end(html);
+				  }
+				});						
+				//that.res.end(html);
 			}); // end serveHTML
 		}	
 	},
