@@ -81,10 +81,10 @@ var router = new director.http.Router({
 				      output += $(this).text() + '<br />'
 				    });
 
-				    that.res.end(output);
+				    //that.res.end(output);
 				  }
 				});						
-				//that.res.end(html);
+				that.res.end(html);
 			}); // end serveHTML
 		}	
 	},
