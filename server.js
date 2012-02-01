@@ -2,8 +2,8 @@ var http 			= require('http'),
 		director 	= require('director'),
 		util 			= require('util'),
 		fs 				= require('fs'),
-		cv 				= require('./lib/cv').cv;
-//jsdom			= require('jsdom')
+		cv 				= require('./lib/cv').cv,
+		jsdom			= require('jsdom');
 // some logic to be routed to
 
 function helloMocha() {
@@ -81,7 +81,7 @@ var router = new director.http.Router({
 				      output += $(this).text() + '<br />'
 				    });
 
-				    that.res.end(html);
+				    that.res.end(output);
 				  }
 				});						
 				//that.res.end(html);
