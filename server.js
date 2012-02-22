@@ -1,149 +1,148 @@
-var http 			= require('http'),
-		director 	= require('director'),
-		util 			= require('util'),
-		fs 				= require('fs'),
-		cv 				= require('./lib/cv').cv,
-		jsdom			= require('jsdom');
-// some logic to be routed to
+var http				= require('http'),
+		cv					= require('./public/cv/cv'),
+		jsdom				= require('jsdom'),
+		url					= require("url"),
+		qs 					= require('querystring'),
+		_						=	require('underscored'),
+		utils				=	require('./lib/utils'),
+		builder			=	require('./lib/builder'),
+		config 			= require('./lib/config')
+		M25 				= require('./lib/M25');
 
-function helloMocha() {
-	this.res.writeHead(200, { 'Content-Type': 'text/plain'});
-	this.res.end('hello mocha from: ');
-}		
 
-function serveFile(res, uri, callback) {
-	var rs = fs.createReadStream(__dirname + uri);
-	util.pump(rs, res, function(err) {
-		if (err) { callback(err) }
-
-		var ext = uri.split('.')[1];
-
-		if (ext) {
-			res.writeHead(200, getMIME(ext));
-			callback(null, res);
-		} else {
-			callback(new Error('Unable to locate a file extension for file: ' + uri));
-		}
-	});		
-}
-
-function serveHTML(uri, callback) {
-	fs.readFile(__dirname + uri, 'utf-8', function (err, data) {
-	  if (err) { 
-		  callback(err);
-		}
-	  callback(null, data);
-	});	
-}
-
-function getMIME(ext) {
-		// http://webdesign.about.com/od/multimedia/a/mime-types-by-content-type.htm 
-		var type = '';
-		switch(ext.toLowerCase()) {
-			case 'html':
-			  type = 'text/html';
-			  break;
-			case 'css':
-			  type = 'text/css';
-			  break;
-			case 'png':
-			  type = 'image/png';
-			  break;			  
-			default:
-			  throw new Error('Unable to find a relevant MIME Type')
-		}		
-		return { 'Content-Type': type};
-}
-
-// define a routing table
-var router = new director.http.Router({
-	'/': {
-		get: function () {	
-			var that = this;
-			serveHTML('/public/index.html', function(err, html){
-				if (err) { throw err }
-
-				// integrate weld : https://github.com/hij1nx/weld
-				// abstract this out into a function that can excepts
-				// a json object and the template html
-				// and the targetted element to be bound.
-
-				jsdom.env({
-				  html: html,
-				  scripts: ['./lib/jquery.js'],
-				  done: function(err, window) {
-						if (err) { throw err }	
-								  	
-				    var $ = window.$;
-				    var output = '';
-
-				    $('a').each(function() {
-				      output += $(this).text() + '<br />'
-				    });
-
-				    //that.res.end(output);
-				  }
-				});						
-				that.res.end(html);
-			}); // end serveHTML
-		}	
-	},
-	'/public/bootstrap/bootstrap.css': {
-		get: function () {	
-			serveFile(this.res, '/public/bootstrap/bootstrap.css', function(err, res){
-				if (err) { throw err }
-
-				res.end();		
-			});
-		}	
-	},	
-	'/public/css/base.css': {
-		get: function () {	
-			serveFile(this.res, '/public/css/base.css', function(err, res){
-				if (err) { throw err }
-
-				res.end();		
-			});
-		}	
-	},
-	'/public/img/browsers.png': {
-		get: function () {	
-			serveFile(this.res, '/public/img/browsers.png', function(err, res){
-				if (err) { throw err }
-
-				res.end();		
-			});
-		}	
-	}			
+var m25 = new M25.Route({
+	'/': 						{ get: serveIndex },
+	'/admin': 			{ get: serveAdmin },
+	'/admin-save': 	{ post: adminSave }
 });
-
-// setup a server when there is a request, dispatch the 
-// route that was requested in the request object
-
-// this is the generic on that can be used to send all traffic
-// through to the relevant router.
-// use this to request the url using require('url'), but add some kind
-// of validation so that users cant access system folder by passing
-// in known folder structures.
 
 var server = http.createServer(function (req, res) {
-	router.dispatch(req, res, function(err) {
+
+	m25.transport(req, res, function (err) {
+
 		if (err) {
-			res.writeHead(404);
-			res.end();
+			throw err;
 		}
+
 	});
+
 });
 
 
-// You can also do ad-hoc routing, similar to express
-// this can be done with a string or a regexp
+function adminSave(req, res) {
+	var POST = '';
 
-// router.get('/mocha', helloMocha);
-// router.get('/latte', helloMocha);
+	res.writeHead(200, {'Content-type': 'text/html'});
+
+	req.on('data', function (chunk){
+		POST += chunk;
+	})
+	.on('end', function () {
+
+		// do something with the data and send a thank you page
+		// validate the data
+		var formData	= qs.parse(POST.toString());
+		var keys			= _.keys(formData);
+		var values		= _.values(formData);
+
+		// console.log('formData field1: ' + formData.field1);
+		// console.log('formData field2: ' + formData.field1);
+		// console.log('keys: ' + keys);
+		// console.log('values: ' + values);
+		// console.log('first value by key: ' + formData[keys[0]]);
+
+		res.end(POST.toString());
+
+	});
+}
+
+
+function serveIndex(req, res) {
+
+	cv.load(config.settings.cv.id, function (err, doc) {
+
+		if (err) {
+			throw err;
+		}
+
+		var config = {
+			data: doc,
+			filePaths: {
+					main: '/public/controls/index.html',
+					header: '/public/controls/header.html',
+					masthead: '/public/controls/masthead.html',
+					footer: '/public/controls/footer.html',
+					scripts: '/public/controls/scripts.html'
+				},
+			root: __dirname
+		};
+
+		builder.page(req, res, config, function (err, html) {
+
+			if (err) {
+				throw err;
+			}
+
+			res.end(html);
+
+		});
+
+	});
+
+}
+
+function serveAdmin(req, res) {
+
+	//cv.load(config.settings.cv.id, function (err, doc) {
+
+		// if (err) {
+		// 	throw err;
+		// }
+
+		var config = {
+			data: null,
+			filePaths: {
+					main: '/public/controls/admin.html',
+					header: '/public/controls/header.html',
+					masthead: '/public/controls/masthead.html',
+					footer: '/public/controls/footer.html',
+					scripts: '/public/controls/scripts.html'
+				},
+			root: __dirname
+		};
+
+		builder.admin(req, res, config, function (err, html) {
+
+			if (err) {
+				throw err;
+			}
+
+			res.end(html);
+
+		});
+
+	//});
+
+}
 
 // live
-server.listen(80);
+//server.listen(80);
 
 // dev
-//server.listen(8080);
+server.listen(8080);
+console.log('serving on 8080');
+
+
+/*
+	#########################################################################
+		NOTES
+		---------------------------------------------------------------------
+
+		1. Serving static files: -
+		help: https://gist.github.com/701407 or just use node static
+
+		2. http://www.nodebeginner.org/ for handling requests and routing them
+
+	#########################################################################
+*/
+

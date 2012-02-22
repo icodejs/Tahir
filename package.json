@@ -1,16 +1,16 @@
  {
 	"name": "tahir",
-	"version": "1.0.0",
+	"version": "0.1.0",
 	"scripts": {
 		"start": "node server.js"
 	},
 		"dependencies": {
-			"underscored": "*",
-			"flatiron": "*",
-			"director": "*",
-			"resourceful": "*",
-			"weld": "*",
-			"jsdom": "*"
+			"underscored": "0.1.x",
+			"flatiron": "0.1.x",
+			"director": "1.0.x",
+			"resourceful": "0.1.x",
+			"jsdom": "0.2.x",
+			"plates": "0.4.5"
 		},
-		"engines": { "node": ">= 0.6.9" }
+		"engines": { "node": "0.6.9" }
 }

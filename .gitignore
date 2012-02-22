@@ -1,1 +1,3 @@
 node_modules/jsdom
+public/cv/cv_template.js
+tests/
