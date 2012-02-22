@@ -1,5 +1,5 @@
 var http				= require('http'),
-		cv					= require('./public/cv/cv'),
+		cv					= require('./lib/cv'),
 		jsdom				= require('jsdom'),
 		url					= require("url"),
 		qs 					= require('querystring'),
