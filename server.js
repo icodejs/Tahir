@@ -77,12 +77,13 @@ function serveIndex(req, res) {
 			root: __dirname
 		};
 
-		builder.page(req, res, config, function (err, html) {
+		builder.page(config, function (err, html) {
 
 			if (err) {
 				throw err;
 			}
 
+			res.writeHead(200, utils.getMIME(config.filePaths.main));
 			res.end(html);
 
 		});
@@ -111,12 +112,13 @@ function serveAdmin(req, res) {
 			root: __dirname
 		};
 
-		builder.admin(req, res, config, function (err, html) {
+		builder.admin(config, function (err, html) {
 
 			if (err) {
 				throw err;
 			}
 
+			res.writeHead(200, utils.getMIME(config.filePaths.main));
 			res.end(html);
 
 		});
@@ -133,16 +135,12 @@ server.listen(8080);
 console.log('serving on 8080');
 
 
-/*
-	#########################################################################
-		NOTES
-		---------------------------------------------------------------------
-
-		1. Serving static files: -
-		help: https://gist.github.com/701407 or just use node static
-
-		2. http://www.nodebeginner.org/ for handling requests and routing them
-
-	#########################################################################
-*/
+/**
+ *	NOTES
+ *	---------------------------------------------------------------------
+ * 	1. Serving static files: -
+ * 	help: https://gist.github.com/701407 or just use node static
+ *
+ *	2. http://www.nodebeginner.org/ for handling requests and routing them
+ */
 
