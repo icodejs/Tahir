@@ -10,7 +10,8 @@
 			"director": "1.0.x",
 			"resourceful": "0.1.x",
 			"jsdom": "0.2.x",
-			"plates": "0.4.5"
+			"plates": "0.4.x",
+			"async": "0.1.x"
 		},
 		"engines": { "node": "0.6.9" }
 }

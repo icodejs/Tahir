@@ -17,7 +17,6 @@ var m25 = new M25.Route({
 });
 
 var server = http.createServer(function (req, res) {
-
 	m25.transport(req, res, function (err) {
 
 		if (err) {
@@ -58,32 +57,24 @@ function adminSave(req, res) {
 
 
 function serveIndex(req, res) {
-
-	cv.load(config.settings.cv.id, function (err, doc) {
+	cv.load(config.settings.cv.id, function (err, data) {
 
 		if (err) {
 			throw err;
 		}
 
-		var config = {
-			data: doc,
-			filePaths: {
-					main: '/public/controls/index.html',
-					header: '/public/controls/header.html',
-					masthead: '/public/controls/masthead.html',
-					footer: '/public/controls/footer.html',
-					scripts: '/public/controls/scripts.html'
-				},
-			root: __dirname
-		};
+		var pageProperties = new config.settings.pageProperties;
+		pageProperties.root = __dirname;
+		pageProperties.data = data;
+		pageProperties.fragments.masthead.data = data.socialLinks;
 
-		builder.page(config, function (err, html) {
+		builder.homepage(pageProperties, function (err, html) {
 
 			if (err) {
 				throw err;
 			}
 
-			res.writeHead(200, utils.getMIME(config.filePaths.main));
+			res.writeHead(200, utils.getMIME(pageProperties.fragments.main.path));
 			res.end(html);
 
 		});
@@ -94,31 +85,23 @@ function serveIndex(req, res) {
 
 function serveAdmin(req, res) {
 
-	//cv.load(config.settings.cv.id, function (err, doc) {
+	//cv.load(config.settings.cv.id, function (err, data) {
 
 		// if (err) {
 		// 	throw err;
 		// }
 
-		var config = {
-			data: null,
-			filePaths: {
-					main: '/public/controls/admin.html',
-					header: '/public/controls/header.html',
-					masthead: '/public/controls/masthead.html',
-					footer: '/public/controls/footer.html',
-					scripts: '/public/controls/scripts.html'
-				},
-			root: __dirname
-		};
+		var pageProperties = new config.settings.pageProperties;
+		pageProperties.root = __dirname;
+		pageProperties.fragments.main.path = '/public/controls/admin.html';
 
-		builder.admin(config, function (err, html) {
+		builder.admin(pageProperties, function (err, html) {
 
 			if (err) {
 				throw err;
 			}
 
-			res.writeHead(200, utils.getMIME(config.filePaths.main));
+			res.writeHead(200, utils.getMIME(pageProperties.fragments.main.path));
 			res.end(html);
 
 		});
