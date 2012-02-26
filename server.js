@@ -28,12 +28,13 @@ var server = http.createServer(function (req, res) {
 });
 
 
-function adminSave(req, res) {
+function adminSave() {
+	var self = this;
 	var POST = '';
 
-	res.writeHead(200, {'Content-type': 'text/html'});
+	self.res.writeHead(200, {'Content-type': 'text/html'});
 
-	req.on('data', function (chunk){
+	self.req.on('data', function (chunk){
 		POST += chunk;
 	})
 	.on('end', function () {
@@ -50,13 +51,15 @@ function adminSave(req, res) {
 		// console.log('values: ' + values);
 		// console.log('first value by key: ' + formData[keys[0]]);
 
-		res.end(POST.toString());
+		self.res.end(POST.toString());
 
 	});
 }
 
 
-function serveIndex(req, res) {
+function serveIndex() {
+	var self = this;
+
 	cv.load(config.settings.cv.id, function (err, data) {
 
 		if (err) {
@@ -74,8 +77,8 @@ function serveIndex(req, res) {
 				throw err;
 			}
 
-			res.writeHead(200, utils.getMIME(pageProperties.fragments.main.path));
-			res.end(html);
+			self.res.writeHead(200, utils.getMIME(pageProperties.fragments.main.path));
+			self.res.end(html);
 
 		});
 
@@ -83,7 +86,8 @@ function serveIndex(req, res) {
 
 }
 
-function serveAdmin(req, res) {
+function serveAdmin() {
+	var self = this;
 
 	//cv.load(config.settings.cv.id, function (err, data) {
 
@@ -101,8 +105,8 @@ function serveAdmin(req, res) {
 				throw err;
 			}
 
-			res.writeHead(200, utils.getMIME(pageProperties.fragments.main.path));
-			res.end(html);
+			self.res.writeHead(200, utils.getMIME(pageProperties.fragments.main.path));
+			self.res.end(html);
 
 		});
 
