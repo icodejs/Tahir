@@ -1,56 +1,37 @@
-var http				= require('http'),
-		cv					= require('./lib/cv'),
-		jsdom				= require('jsdom'),
-		url					= require("url"),
-		qs 					= require('querystring'),
-		_						=	require('underscored'),
-		utils				=	require('./lib/utils'),
-		builder			=	require('./lib/builder'),
-		config 			= require('./lib/config')
-		M25 				= require('./lib/M25');
-
-
-var m25 = new M25.Route({
-	'/': 						{ get: serveIndex },
-	'/admin': 			{ get: serveAdmin },
-	'/admin-save': 	{ post: adminSave }
-});
-
-var server = http.createServer(function (req, res) {
-	m25.transport(req, res, function (err) {
-
-		if (err) {
-			throw err;
-		}
-
-	});
-
-});
-
+var http = require('http'),
+	cv = require('./lib/cv'),
+	jsdom = require('jsdom'),
+	url = require("url"),
+	qs = require('querystring'),
+	underscored = require('underscored'),
+	utils = require('./lib/utils'),
+	builder = require('./lib/builder'),
+	config = require('./lib/config'),
+	M25 = require('./lib/M25');
 
 function adminSave() {
-	var self = this;
-	var POST = '';
+	var self = this,
+		POST = '';
 
-	self.res.writeHead(200, {'Content-type': 'text/html'});
+	self.res.writeHead(200, {
+		'Content-type': 'text/html'
+	});
 
-	self.req.on('data', function (chunk){
+	self.req.on('data', function (chunk) {
 		POST += chunk;
-	})
-	.on('end', function () {
+	}).on('end', function () {
 
 		// do something with the data and send a thank you page
 		// validate the data
-		var formData	= qs.parse(POST.toString());
-		var keys			= _.keys(formData);
-		var values		= _.values(formData);
+		var formData = qs.parse(POST.toString()),
+			keys = underscored.keys(formData),
+			values = underscored.values(formData);
 
 		// console.log('formData field1: ' + formData.field1);
 		// console.log('formData field2: ' + formData.field1);
 		// console.log('keys: ' + keys);
 		// console.log('values: ' + values);
 		// console.log('first value by key: ' + formData[keys[0]]);
-
 		self.res.end(POST.toString());
 
 	});
@@ -66,7 +47,7 @@ function serveIndex() {
 			throw err;
 		}
 
-		var pageProperties = new config.settings.pageProperties;
+		var pageProperties = new config.settings.pageProperties();
 		pageProperties.root = __dirname;
 		pageProperties.data = data;
 		pageProperties.fragments.masthead.data = data.socialLinks;
@@ -90,33 +71,52 @@ function serveAdmin() {
 	var self = this;
 
 	//cv.load(config.settings.cv.id, function (err, data) {
+	// if (err) {
+	// 	throw err;
+	// }
+	var pageProperties = new config.settings.pageProperties();
+	pageProperties.root = __dirname;
+	pageProperties.fragments.main.path = '/public/controls/admin.html';
 
-		// if (err) {
-		// 	throw err;
-		// }
+	builder.admin(pageProperties, function (err, html) {
 
-		var pageProperties = new config.settings.pageProperties;
-		pageProperties.root = __dirname;
-		pageProperties.fragments.main.path = '/public/controls/admin.html';
+		if (err) {
+			throw err;
+		}
 
-		builder.admin(pageProperties, function (err, html) {
+		self.res.writeHead(200, utils.getMIME(pageProperties.fragments.main.path));
+		self.res.end(html);
 
-			if (err) {
-				throw err;
-			}
-
-			self.res.writeHead(200, utils.getMIME(pageProperties.fragments.main.path));
-			self.res.end(html);
-
-		});
+	});
 
 	//});
-
 }
+
+var m25 = new M25.Route({
+	'/': {
+		get: serveIndex
+	},
+	'/admin': {
+		get: serveAdmin
+	},
+	'/admin-save': {
+		post: adminSave
+	}
+});
+
+var server = http.createServer(function (req, res) {
+	m25.transport(req, res, function (err) {
+
+		if (err) {
+			throw err;
+		}
+
+	});
+
+});
 
 // live
 //server.listen(80);
-
 // dev
 server.listen(8080);
 console.log('serving on 8080');
