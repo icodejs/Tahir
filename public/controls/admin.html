@@ -37,6 +37,20 @@
                 <div class="control-group">
                   <button type="submit" class="btn btn-primary">Load CV</button>
                 </div>
+
+                <div class="control-group">
+                  <h2>To do list:</h2>
+                  <ul>
+                    <li>load all available CVs from db into the dropdown list use plates</li>
+                    <li>on load populate form</li>
+                    <li>add auto complete functionality from: http://textextjs.com/</li>
+                    <li>add some kind of RTE for textarea input boxes</li>
+                    <li>source a image upload plugin with progress bar (dont reinvent the wheel but see if you can incorperate node into this process)</li>
+                    <li>add some kind of JQ validation. (See JS Patterns book for a pointer P157)</li>
+                    <li>fix naviation on state</li>
+                  </ul>
+                </div>
+
               </fieldset>
 
             </form>
@@ -49,9 +63,37 @@
                 <legend>Details</legend>
 
                 <div class="control-group">
+                  <label class="control-label" for="profilePic">Profile picture (create some kind of upload plugin)</label>
+                  <div class="controls">
+                    <input class="input-xlarge" id="profilePic" name="profilePic" type="text">
+                  </div>
+                </div>
+
+                <div class="control-group">
                   <label class="control-label" for="fullname">Fullname</label>
                   <div class="controls">
                     <input class="input-xlarge focused" id="fullname" name="fullname" type="text">
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="position">Position</label>
+                  <div class="controls">
+                    <input class="input-xlarge focused" id="position" name="position" type="text">
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="currentJobTitle">Job title</label>
+                  <div class="controls">
+                    <input class="input-xlarge focused" id="currentJobTitle" name="currentJobTitle" type="text">
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="skills">Skills (use jq plugin auto complete... see Delicious bookmarks)</label>
+                  <div class="controls">
+                    <input class="input-xlarge focused" id="skills" name="skills" type="text">
                   </div>
                 </div>
 
@@ -70,9 +112,37 @@
                 </div>
 
                 <div class="control-group">
-                  <label class="control-label" for="profile-pic">Profile picture</label>
+                  <label class="control-label" for="websites">Websites (websites i created... list / object)</label>
                   <div class="controls">
-                    <input class="input-xlarge" id="profile-pic" name="profile-pic" type="text">
+                    <input class="input-xlarge" id="websites" name="websites" type="text">
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="experience">Experience</label>
+                  <div class="controls">
+                    <input class="input-xlarge" id="experience" name="experience" type="text">
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="profile">Profile (richtext)</label>
+                  <div class="controls">
+                    <textarea class="input-xlarge" id="profile" name="profile" type="text"></textarea>
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="education">Education (richtext)</label>
+                  <div class="controls">
+                    <textarea class="input-xlarge" id="education" name="education" type="text"></textarea>
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="interests">Interests (list / object)</label>
+                  <div class="controls">
+                    <input class="input-xlarge" id="interests" name="interests" type="text">
                   </div>
                 </div>
 

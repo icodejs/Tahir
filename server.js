@@ -1,40 +1,33 @@
 var http = require('http'),
-	cv = require('./lib/cv'),
-	jsdom = require('jsdom'),
-	url = require("url"),
-	qs = require('querystring'),
-	underscored = require('underscored'),
-	utils = require('./lib/utils'),
-	builder = require('./lib/builder'),
-	config = require('./lib/config'),
-	M25 = require('./lib/M25');
+		cv = require('./lib/cv'),
+		jsdom = require('jsdom'),
+		url = require("url"),
+		qs = require('querystring'),
+		underscored = require('underscored'),
+		common = require('./lib/common'),
+		builder = require('./lib/builder'),
+		config = require('./lib/config'),
+		M25 = require('./lib/M25');
+
 
 function adminSave() {
-	var self = this,
-		POST = '';
+	var self = this;
 
 	self.res.writeHead(200, {
 		'Content-type': 'text/html'
 	});
 
-	self.req.on('data', function (chunk) {
-		POST += chunk;
-	}).on('end', function () {
+	// do something with the data and send a thank you page
+	// validate the data
 
-		// do something with the data and send a thank you page
-		// validate the data
-		var formData = qs.parse(POST.toString()),
-			keys = underscored.keys(formData),
-			values = underscored.values(formData);
+	var keys = underscored.keys(self.body),
+	 		values = underscored.values(self.body);
 
-		// console.log('formData field1: ' + formData.field1);
-		// console.log('formData field2: ' + formData.field1);
-		// console.log('keys: ' + keys);
-		// console.log('values: ' + values);
-		// console.log('first value by key: ' + formData[keys[0]]);
-		self.res.end(POST.toString());
+	console.log(self.body);
 
-	});
+
+	self.res.end(self.body.fullname);
+
 }
 
 
@@ -47,7 +40,7 @@ function serveIndex() {
 			throw err;
 		}
 
-		var pageProperties = new config.settings.pageProperties();
+		var pageProperties = Object.create(config.settings.pageProperties());
 		pageProperties.root = __dirname;
 		pageProperties.data = data;
 		pageProperties.fragments.masthead.data = data.socialLinks;
@@ -58,7 +51,7 @@ function serveIndex() {
 				throw err;
 			}
 
-			self.res.writeHead(200, utils.getMIME(pageProperties.fragments.main.path));
+			self.res.writeHead(200, common.getMIME(pageProperties.fragments.main.path));
 			self.res.end(html);
 
 		});
@@ -74,7 +67,7 @@ function serveAdmin() {
 	// if (err) {
 	// 	throw err;
 	// }
-	var pageProperties = new config.settings.pageProperties();
+	var pageProperties = Object.create(config.settings.pageProperties());
 	pageProperties.root = __dirname;
 	pageProperties.fragments.main.path = '/public/controls/admin.html';
 
@@ -84,7 +77,7 @@ function serveAdmin() {
 			throw err;
 		}
 
-		self.res.writeHead(200, utils.getMIME(pageProperties.fragments.main.path));
+		self.res.writeHead(200, common.getMIME(pageProperties.fragments.main.path));
 		self.res.end(html);
 
 	});
