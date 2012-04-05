@@ -8,30 +8,28 @@ An attempt at learning the quirks of Node and writing custom modules.
 
 - M25 (basic routing and static file serving)
 
-{% highlight javascript linenos %}
-var m25 = new M25.Route({
-    '/': {
-        get: serveIndex
-    },
-    '/admin': {
-        get: serveAdmin
-    },
-    '/admin-save': {
-        post: adminSave
-    },
-});
-
-var server = http.createServer(function (req, res) {
-    m25.transport(req, res, function (err) {
-
-        if (err) {
-            throw err;
-        }
-
+    var m25 = new M25.Route({
+        '/': {
+            get: serveIndex
+        },
+        '/admin': {
+            get: serveAdmin
+        },
+        '/admin-save': {
+            post: adminSave
+        },
     });
 
-});
-{% endhighlight %}
+    var server = http.createServer(function (req, res) {
+        m25.transport(req, res, function (err) {
+
+            if (err) {
+                throw err;
+            }
+
+        });
+
+    });
 
 - Builder (builds a HTML page from include files and injects dynamic content using Nodejitsu's Flatiron Plats and a prefined config file of the sections / files you require).
 
