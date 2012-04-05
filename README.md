@@ -40,5 +40,6 @@ An attempt at learning the quirks of Node and writing custom modules.
 - Routing
 - Templating
 - Smart ways of building HTML pages from include files
+- Deploying to a Node [no.de](http://tahir.no.de/admin) Smart Machine / Remote server
 
 **This is a POC and a work in progress**
