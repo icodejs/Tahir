@@ -135,9 +135,9 @@ var server = http.createServer(function (req, res) {
 });
 
 // live
-//server.listen(80);
+server.listen(80);
 // dev
-server.listen(8080);
+//server.listen(8080);
 console.log('serving on 8080');
 
 

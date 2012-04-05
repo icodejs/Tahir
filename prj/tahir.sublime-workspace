@@ -4,8 +4,20 @@
 		"selected_items":
 		[
 			[
+				"fragments",
+				"fragmentsConfig"
+			],
+			[
 				"jq",
-				"jqplugin	jQuery plugin template"
+				"jqcode	jQuery add a link to the latest version of jQuery"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"lin",
+				"LINK	Tag"
 			],
 			[
 				"vide",
@@ -88,26 +100,74 @@
 	"buffers":
 	[
 		{
+			"file": "/Users/tyrone/Sites/tahir/lib/cv.js",
+			"settings":
+			{
+				"buffer_size": 2981,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/tyrone/Sites/tahir/public/controls/admin.html",
+			"settings":
+			{
+				"buffer_size": 7029,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/tyrone/Sites/tahir/lib/config.js",
+			"settings":
+			{
+				"buffer_size": 443,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/tyrone/Sites/tahir/lib/jquery.js",
+			"settings":
+			{
+				"buffer_size": 93867,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/tyrone/Sites/tahir/tests/notes.txt",
+			"settings":
+			{
+				"buffer_size": 4912,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/tyrone/Sites/tahir/public/controls/index.html",
+			"settings":
+			{
+				"buffer_size": 1154,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/tyrone/Sites/tahir/lib/common.js",
+			"settings":
+			{
+				"buffer_size": 1333,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "/Users/tyrone/Sites/tahir/server.js",
 			"settings":
 			{
-				"buffer_size": 828,
+				"buffer_size": 3026,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "notes.txt",
+			"file": "/Users/tyrone/Sites/tahir/lib/M25.js",
 			"settings":
 			{
-				"buffer_size": 522,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/tyrone/Sites/tahir/package.json",
-			"settings":
-			{
-				"buffer_size": 216,
+				"buffer_size": 1602,
 				"line_ending": "Unix"
 			}
 		}
@@ -115,12 +175,16 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 107.0,
+		"height": 327.0,
 		"selected_items":
 		[
 			[
 				"pack",
-				"Package Control: Install Package"
+				"Package Control: List Packages"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
 			],
 			[
 				"pac",
@@ -175,7 +239,7 @@
 				"Project: Save As"
 			]
 		],
-		"width": 516.0
+		"width": 593.0
 	},
 	"console":
 	{
@@ -192,6 +256,70 @@
 	},
 	"file_history":
 	[
+		"/Users/tyrone/Sites/tahir/lib/builder.js",
+		"/Users/tyrone/Sites/tahir/tests/resourceful.js",
+		"/Users/tyrone/Sites/tahir/public/bootstrap/docs/examples/hero.html",
+		"/Users/tyrone/Sites/tahir/public/controls/scripts.html",
+		"/Users/tyrone/Sites/tahir/lib/common.js",
+		"/Users/tyrone/Sites/tahir/lib/config.js",
+		"/Users/tyrone/Sites/tahir/lib/utils.js",
+		"/Users/tyrone/Sites/tahir/server.js",
+		"/Users/tyrone/Sites/tahir/lib/M25.js",
+		"/Users/tyrone/Sites/tahir/lib/cv.js",
+		"/Users/tyrone/Sites/tahir/README",
+		"/Users/tyrone/Sites/tahir/public/controls/admin.html",
+		"/Users/tyrone/Sites/tahir/public/cv/cv_template.js",
+		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/tyrone/Sites/tahir/public/controls/index.html",
+		"/Users/tyrone/Sites/tahir/public/css/base.css",
+		"/Users/tyrone/Sites/tahir/public/controls/masthead.html",
+		"/Users/tyrone/Sites/tahir/tests/notes.txt",
+		"/Users/tyrone/Sites/tahir/package.json",
+		"/Users/tyrone/Sites/tahir/tests/server-backup-20_02_11.js",
+		"/Users/tyrone/Sites/tahir/public/cv/cv.js",
+		"/Users/tyrone/Sites/tahir/.gitignore",
+		"/Users/tyrone/Sites/tahir/lib/mime.js",
+		"/Users/tyrone/Sites/tahir/lib/route66.js",
+		"/Users/tyrone/Sites/tahir/tests/server.js",
+		"/Users/tyrone/Sites/tahir/tests/test.js",
+		"/Users/tyrone/Sites/tahir/node_modules/node-static/lib/node-static/util.js",
+		"/Users/tyrone/Sites/tahir/node_modules/node-static/lib/node-static/mime.js",
+		"/Users/tyrone/Sites/tahir/node_modules/node-static/lib/node-static.js",
+		"/Users/tyrone/Sites/tahir/public/controls/headerTags.html",
+		"/Users/tyrone/Sites/tahir/public/index.html",
+		"/Users/tyrone/Sites/tahir/lib/jquery.js",
+		"/Users/tyrone/Sites/tahir/public/controls/footer.html",
+		"/Users/tyrone/Sites/tahir/tests/plates.js",
+		"/Users/tyrone/Sites/tahir/node_modules/plates/test/api-test.js",
+		"/Users/tyrone/Sites/tahir/lib/zopon_utils.js",
+		"/Users/tyrone/Sites/tahir/lib/zopon_builder.js",
+		"/Users/tyrone/Sites/tahir/.npmignore",
+		"/Users/tyrone/Sites/tahir/server-backup.js",
+		"/Users/tyrone/Sites/tahir/public/admin/index.html",
+		"/Users/tyrone/Sites/tahir/public/mofoblitz/masthead.html",
+		"/Users/tyrone/Sites/tahir/server-live.js",
+		"/Users/tyrone/Sites/tahir/public/cv/cd.js",
+		"/Users/tyrone/Sites/tahir/public/cv/cv.json",
+		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/Default/Base File.sublime-settings",
+		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/Default/Global.sublime-settings",
+		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/User/Base File.sublime-settings",
+		"/Users/tyrone/Sites/tahir/notes.txt",
+		"/Users/tyrone/Sites/tahir/node_modules/flatiron/package.json",
+		"/Users/tyrone/Sites/tahir/config.json",
+		"/Users/tyrone/Sites/tahir/server2.js",
+		"/Users/tyrone/Sites/tahir/server1.js",
+		"/Users/tyrone/Sites/tahir/node_modules/jsdom/node_modules/contextify/package.json",
+		"/Users/tyrone/Sites/tahir/node_modules/jsdom/package.json",
+		"/Users/tyrone/Sites/tahir/prj/notes.txt",
+		"/Users/tyrone/Sites/tahir/node_modules/jsdom/test/sizzle/index.js",
+		"/Users/tyrone/Sites/tahir/node_modules/jsdom/test/browser/index.js",
+		"/Users/tyrone/Sites/tahir/node_modules/plates/test/common.js",
+		"/Users/tyrone/Sites/tahir/node_modules/plates/test/perf-test.js",
+		"/Users/tyrone/Sites/tahir/public/bootstrap/.gitignore",
+		"/Users/tyrone/Sites/tahir/public/bootstrap/bootstrap.css",
+		"/Users/tyrone/Sites/tahir/public/bootstrap/examples/container-app.html",
+		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
 		"/Users/tyrone/Sites/mochascript/prj/server2.js",
 		"/Users/tyrone/Sites/Any-video/index.js",
 		"/Users/tyrone/Sites/Any-video/lib/video/cf.js",
@@ -206,9 +334,6 @@
 		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/User/javascript-switch.sublime-snippet",
 		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/User/javascript-switch",
 		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/Terminal/Terminal.sublime-settings",
-		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/User/Base File.sublime-settings",
-		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/Default/Base File.sublime-settings",
-		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/Default/Global.sublime-settings",
 		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/User/Global.sublime-settings",
 		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/Alignment/Default (OSX).sublime-keymap",
 		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/Alignment/Base File.sublime-settings",
@@ -222,7 +347,6 @@
 		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings",
 		"/Users/tyrone/Sites/WatchaWatching/node_modules/express/package.json",
 		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
-		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
 		"/Users/tyrone/Sites/WatchaWatching/node_modules/express/lib/view.js",
 		"/Users/tyrone/Sites/WatchaWatching/server.js",
 		"/Users/tyrone/Sites/WatchaWatching/index.js",
@@ -245,13 +369,107 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"/Users/tyrone/Sites/tahir/node_modules/jsdom"
 		]
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"type=\"text/javascript\" ",
+			"fc",
+			"fragmentBuilder",
+			"getFragment",
+			"fragmentBuilder",
+			"');",
+			"mapFunction",
+			"mapperFunction",
+			"mastheadMa",
+			"mastHead",
+			"callback",
+			"utils",
+			"underscored",
+			"key",
+			"trim",
+			"post",
+			"_",
+			"pageProperties",
+			"_",
+			"pageElements",
+			"pump",
+			"utils",
+			"fileContentsText",
+			"data",
+			",",
+			"path",
+			"_mapper",
+			"fragmentsConfig",
+			"keys",
+			"fragmentBuilder",
+			"footer",
+			"res",
+			"Transporter",
+			"requestPath",
+			"}",
+			"this",
+			"/\">",
+			"());",
+			"();",
+			"mastHead",
+			"header_template",
+			"masthead_template",
+			"footer_html",
+			"scripts_html",
+			"main_html",
+			"header_html",
+			"mastHead_html",
+			"scripts_html",
+			"dbConnectionStrings",
+			"getMIME",
+			"ext",
+			"insert",
+			",",
+			"doc",
+			"							// console.log('social links html: ', $('#socialLinks').html());\n							// console.log('social links, first a tag', $('#socialLinks').html());\n							// console.log('plates bind(): ', plates.bind($('#socialLinks').html(), doc.socialLinks, map));\n",
+			"zopon_",
+			"pumpFileToResponse",
+			"serveRawHTML",
+			"serveHTML",
+			"serveIndex",
+			"]);",
+			"						// console.log('hello');\n						// window.weld(window.$('.skills')[0], skills);\n						// console.log(_.keys(weld));\n						// console.log(_.keys(window));",
+			"cv",
+			".</",
+			"console",
+			");",
+			"ico",
+			"url",
+			"conso",
+			"serveFile2",
+			"\n	",
+			"\n		",
+			"'));",
+			"reqUrl",
+			"/bootstrap/",
+			"/bootstrap",
+			"../",
+			"less",
+			"helloMocha",
+			"docs",
+			"the",
+			"CV.destroy('1328356646710', function (err, doc) {\n//   if (err) { throw new(Error)(err) }\n\n//   try {\n// 		console.log('cv: ' + doc.id + 'was destroyed!');\n//   } catch (e) {\n//   	console.log('The document you are trying to delete does not exist!');\n//   }\n// });",
+			");",
+			"doc",
+			"CV.get('1', function (err, cv) {\n//   if (err) { throw new(Error)(err) }\n//   console.log(cv); \n// });",
+			"caret",
+			"ruler",
+			"split",
+			"contextify",
+			");",
+			"map",
+			"));		",
+			"output",
 			"clear",
 			"getHead",
 			"new",
@@ -277,9 +495,39 @@
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"",
+			"config",
+			"buildPageControl",
+			"getPageControl",
+			"return callback",
+			"common",
+			"underscored",
+			"pageProperties",
+			"getUTF8Text",
+			"_fragment",
+			"fc",
+			"getFragment",
+			"Route",
+			"requestFilePath",
+			"masthead",
+			"headerTemplate",
+			"mastheadTemplate",
+			"footerTemplate",
+			"scriptTemplate",
+			"mainTemplate",
+			"headerTemplate",
+			"mastheadTemplate",
+			"scriptTemplate",
+			"",
+			"serveRawHTML",
+			"serveFile",
+			" ",
+			"",
+			"/public/bootstrap/",
+			"/bootstrap/docs/",
 			"loadHead",
 			"v",
 			"curr_vid",
@@ -287,23 +535,78 @@
 			""
 		],
 		"reverse": false,
-		"show_context": true,
+		"show_context": false,
 		"use_buffer2": true,
-		"whole_word": true,
-		"wrap": true
+		"whole_word": false,
+		"wrap": false
 	},
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/Users/tyrone/Sites/tahir/server.js",
+					"file": "/Users/tyrone/Sites/tahir/lib/cv.js",
 					"settings":
 					{
-						"buffer_size": 828,
+						"buffer_size": 2981,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								719,
+								719
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 494.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/tyrone/Sites/tahir/public/controls/admin.html",
+					"settings":
+					{
+						"buffer_size": 7029,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1791,
+								1795
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/tyrone/Sites/tahir/lib/config.js",
+					"settings":
+					{
+						"buffer_size": 443,
 						"regions":
 						{
 						},
@@ -326,27 +629,109 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "notes.txt",
+					"buffer": 3,
+					"file": "/Users/tyrone/Sites/tahir/lib/jquery.js",
 					"settings":
 					{
-						"buffer_size": 522,
+						"buffer_size": 93867,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								522,
-								522
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/tyrone/Sites/tahir/tests/notes.txt",
+					"settings":
+					{
+						"buffer_size": 4912,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								778,
+								731
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 286.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/tyrone/Sites/tahir/public/controls/index.html",
+					"settings":
+					{
+						"buffer_size": 1154,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								882,
+								882
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/tyrone/Sites/tahir/lib/common.js",
+					"settings":
+					{
+						"buffer_size": 1333,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1250,
+								1176
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 521.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -354,28 +739,54 @@
 			]
 		},
 		{
-			"selected": 0,
 			"sheets":
 			[
 				{
-					"buffer": 2,
-					"file": "/Users/tyrone/Sites/tahir/package.json",
+					"buffer": 7,
+					"file": "/Users/tyrone/Sites/tahir/server.js",
 					"settings":
 					{
-						"buffer_size": 216,
+						"buffer_size": 3026,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								148,
-								148
+								2496,
+								2500
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/tyrone/Sites/tahir/lib/M25.js",
+					"settings":
+					{
+						"buffer_size": 1602,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								355,
+								153
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -415,7 +826,7 @@
 		"cols":
 		[
 			0.0,
-			0.479964643488,
+			0.542478867903,
 			1.0
 		],
 		"rows":
